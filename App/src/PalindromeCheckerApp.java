@@ -9,21 +9,22 @@ public class PalindromeCheckerApp {
         System.out.println("Welcome to Palindrome Checker Management System");
         System.out.println("Version : 1.0");
         System.out.println("System initialized successfully");
+        import java.util.Stack;
 
         String str = "madam";
-        char[] chars = str.toCharArray();
+        Stack<Character> stack = new Stack<>();
 
-        int left = 0;
-        int right = chars.length - 1;
+        for (int i = 0; i < str.length(); i++) {
+            stack.push(str.charAt(i));
+        }
+
         boolean isPalindrome = true;
 
-        while (left < right) {
-            if (chars[left] != chars[right]) {
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) != stack.pop()) {
                 isPalindrome = false;
                 break;
             }
-            left++;
-            right--;
         }
 
         if (isPalindrome) {
@@ -33,5 +34,7 @@ public class PalindromeCheckerApp {
         }
     }
 }
+
+
 
 
