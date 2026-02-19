@@ -10,24 +10,19 @@ public class PalindromeCheckerApp {
         System.out.println("Version : 1.0");
         System.out.println("System initialized successfully");
 
-
-        Scanner sc = new Scanner(System.in);
-
-        System.out.println("Enter a string: ");
-        String input = sc.nextLine();
-
+        String original = "madam";
         String reversed = "";
 
-        for(int i = input.length() - 1; i >= 0; i--) {
-            reversed += input.charAt(i);
+        for (int i = original.length() - 1; i >= 0; i--) {
+            reversed = reversed + original.charAt(i);
         }
 
-        if(input.equals(reversed)) {
-            System.out.println("It is a palindrome");
+                // Compare original and reversed string
+        if (original.equals(reversed)) {
+            System.out.println("The string is a palindrome.");
         } else {
-            System.out.println("It is not a palindrome");
+            System.out.println("The string is not a palindrome.");
         }
-        sc.close();
-
     }
 }
+
