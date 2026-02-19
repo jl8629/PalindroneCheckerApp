@@ -10,7 +10,7 @@ public class PalindromeCheckerApp {
         System.out.println("Version : 1.0");
         System.out.println("System initialized successfully");
 
-        /*
+
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Enter a string: ");
@@ -28,6 +28,6 @@ public class PalindromeCheckerApp {
             System.out.println("It is not a palindrome");
         }
         sc.close();
-         */
+
     }
 }
