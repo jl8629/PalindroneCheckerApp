@@ -1,39 +1,36 @@
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.Deque;
+import java.util.ArrayDeque;
 import java.util.Scanner;
 
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a string: ");
         String input = sc.nextLine();
 
-        Queue<Character> queue = new LinkedList<>();
-        Stack<Character> stack = new Stack<>();
+        String processed = input.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
 
-        for (char ch : input.toCharArray()) {
-            queue.add(ch);
-            stack.push(ch);
+        Deque<Character> deque = new ArrayDeque<>();
+
+        for(int i = 0; i < processed.length(); i++) {
+            deque.addLast(processed.charAt(i));
         }
 
-        StringBuilder dequeueResult = new StringBuilder();
-        StringBuilder popResult = new StringBuilder();
+        boolean isPalindrome = true;
 
-        while (!queue.isEmpty()) {
-            dequeueResult.append(queue.remove());
+        while(deque.size() > 1) {
+            char front = deque.removeFirst();
+            char rear = deque.removeLast();
+
+            if(front != rear) {
+                isPalindrome = false;
+                break;
+            }
         }
 
-        while (!stack.isEmpty()) {
-            popResult.append(stack.pop());
-        }
-
-        System.out.println("Queue (FIFO - Dequeue): " + dequeueResult.toString());
-        System.out.println("Stack (LIFO - Pop): " + popResult.toString());
-
-        if (dequeueResult.toString().equals(popResult.reverse().toString())) {
-            System.out.println("Palindrome: Yes");
-        } else {
-            System.out.println("Palindrome: No");
-        }
+        if(isPalindrome)
+            System.out.println("Palindrome");
+        else
+            System.out.println("Not a Palindrome");
     }
 }
