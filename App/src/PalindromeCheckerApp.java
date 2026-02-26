@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class PalindromeCheckerApp {
+public class PalindromeCheckerRecursive {
 
     static boolean isPalindrome(String str, int start, int end) {
         if(start >= end)
